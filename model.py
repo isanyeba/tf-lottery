@@ -1,7 +1,7 @@
 import tensorflow as tf
-from tensorflow.contrib import rnn
-from tensorflow.contrib import legacy_seq2seq
+from tensorflow.python.ops import rnn
 import numpy as np
+import seq_loss
 
 
 class Model():
