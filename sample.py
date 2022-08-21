@@ -1,5 +1,6 @@
 from __future__ import print_function
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import argparse
 import os
 from six.moves import cPickle
@@ -26,9 +27,9 @@ def main():
 
 def sample(args):
     tf.reset_default_graph()
-    with open(os.path.join(args.save_dir, 'config.pkl'), 'rb') as f:
+    with open(os.path.join(args.save_dir, 'lottery\config.pkl'), 'rb') as f:
         saved_args = cPickle.load(f)
-    with open(os.path.join(args.save_dir, 'chars_vocab.pkl'), 'rb') as f:
+    with open(os.path.join(args.save_dir, 'lottery\chars_vocab.pkl'), 'rb') as f:
         chars, vocab = cPickle.load(f)
     model = Model(saved_args, training=False)
     with tf.Session() as sess:
